@@ -1,0 +1,14 @@
+---
+- hosts: all
+  name: pingme
+  become: yes
+  gather_facts: true
+
+  tasks:
+    - name: Ping all hosts
+      ping:
+      register: ping_results
+
+    - name: Log ping_results
+      Debug:
+        var: ping_results
