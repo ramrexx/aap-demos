@@ -6,9 +6,9 @@
 
   tasks:
     - name: Ping all hosts
-      ping:
+      ansible.builtin.ping:
       register: ping_results
 
     - name: Log ping_results
-      Debug:
+      ansible.builtin.debug:
         var: ping_results
