@@ -1,0 +1,14 @@
+---
+- hosts: all
+  name: ec2-stop
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Stopping ec2 instance
+      amazon.aws.ec2_instance:
+        state: stop
+        filters:
+          instance-state-name: 
+
+
