@@ -7,7 +7,7 @@
   tasks:
     - name: Stopping ec2 instance
       amazon.aws.ec2_instance:
-        state: stop
+        state: stopped
         filters:
           instance-state-name: 
 
