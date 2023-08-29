@@ -11,7 +11,7 @@
   #   servername:
 
   tasks:
-    - name: Setting ec2 {{ servername }} to {{ state }}
+    - name: Setting ec2 #{{ servername }} to {{ state }}
       amazon.aws.ec2_instance:
         region: "{{ region }}"
         state: "{{ state }}"
