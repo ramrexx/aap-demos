@@ -28,6 +28,7 @@
     - name: Pvt 
       ansible.builtin.debug:
         msg: "{{ item.private_ip_address }}"
-      loop: "{{ ec2_instances.instances[0] }}"
+      loop: "{{ ec2_instances.instances }}"
+
 
 
