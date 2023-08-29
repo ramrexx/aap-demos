@@ -1,0 +1,20 @@
+---
+- name: Control AWS instances
+  hosts: localhost
+  connection: local
+  become: no
+  gather_facts: no
+
+  vars:
+    region:
+    state:
+    servername:
+
+  tasks:
+  - name: Setting ec2 {{ servername }} to {{ state }}
+    amazon.aws.ec2_instance:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      name: "{{ servername }}"
+      # tags:
+      #   role: "{{ servername }}"
