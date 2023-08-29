@@ -14,8 +14,10 @@
   tasks:
     - name: Gathering information about "{{ servername }}"
       amazon.aws.ec2_instance_info:
-        filters:
-          "tag:Name": "{{ servername }}"
+        region: "{{ region }}"
+        name: "{{ servername }}"
+        # filters:
+        #   "tag:Name": "{{ servername }}"
       register: ec2_node_info
 
     - name: Setting ec2 "{{ servername }}" state to "{{ state }}"
