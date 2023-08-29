@@ -12,11 +12,18 @@
   #   vpc_subnet_id:
 
   tasks:
-    - name: Setting ec2 "{{ servername }}" to "{{ state }}"
+    - name: Gathering information about "{{ servername }}"
+      amazon.aws.ec2_instance_info:
+        filters:
+          "tag:Name": "{{ servername }}"
+      register: ec2_node_info
+
+    - name: Setting ec2 "{{ servername }}" state to "{{ state }}"
       amazon.aws.ec2_instance:
         region: "{{ region }}"
         state: "{{ state }}"
-        name: "{{ servername }}"
+        instance_ids: "{{ ec2_web.instances[0].instance_id }}"
+        # name: "{{ servername }}"
         # vpc_subnet_id: "{{ vpc_subnet_id: }}"
         # tags:
         #   - Name: "{{ servername }}"
