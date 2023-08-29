@@ -22,7 +22,7 @@
       amazon.aws.ec2_instance:
         region: "{{ region }}"
         state: "{{ state }}"
-        instance_ids: "{{ ec2_web.instances[0].instance_id }}"
+        instance_ids: "{{ ec2_node_info.instances[0].instance_id }}"
         # name: "{{ servername }}"
         # vpc_subnet_id: "{{ vpc_subnet_id: }}"
         # tags:
