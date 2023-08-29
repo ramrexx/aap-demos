@@ -16,5 +16,3 @@
       region: "{{ region }}"
       state: "{{ state }}"
       name: "{{ servername }}"
-      # tags:
-      #   role: "{{ servername }}"
