@@ -9,10 +9,14 @@
   #   region:
   #   state:
   #   servername:
+  #   vpc_subnet_id:
 
   tasks:
-    - name: Setting ec2 #{{ servername }} to {{ state }}
+    - name: Setting ec2 "{{ servername }}" to "{{ state }}"
       amazon.aws.ec2_instance:
         region: "{{ region }}"
         state: "{{ state }}"
         name: "{{ servername }}"
+        # vpc_subnet_id: "{{ vpc_subnet_id: }}"
+        # tags:
+        #   - Name: "{{ servername }}"
