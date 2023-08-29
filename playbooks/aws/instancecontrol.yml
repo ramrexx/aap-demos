@@ -5,10 +5,10 @@
   become: no
   gather_facts: no
 
-  vars:
-    region:
-    state:
-    servername:
+  # vars:
+  #   region:
+  #   state:
+  #   servername:
 
   tasks:
   - name: Setting ec2 {{ servername }} to {{ state }}
