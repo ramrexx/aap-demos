@@ -1,14 +1,19 @@
 ---
 - hosts: all
   name: pingme
-  become: yes
+  become: true
   gather_facts: true
 
+  vars:
+    verbose: false
+
+
   tasks:
-    - name: Ping all hosts
+    - name: Ping host
       ansible.builtin.ping:
       register: ping_results
 
     - name: Log ping_results
       ansible.builtin.debug:
         var: ping_results
+      when: verbose
