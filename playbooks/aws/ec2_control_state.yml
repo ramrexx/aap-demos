@@ -15,21 +15,9 @@
     wait: false
 
   tasks:
-    - name: Gathering information about "{{ servername }}"
-      amazon.aws.ec2_instance_info:
-        region: "{{ region }}"
-        filters:
-          "tag:Name": "{{ servername }}"
-      register: ec2_instances
-
-    - name: Log ec2_instances
-      ansible.builtin.debug:
-        var: ec2_instances
-      when: verbose
-
     - name: Setting ec2 instance "{{ servername }}" state to "{{ state }}"
       amazon.aws.ec2_instance:
         region: "{{ region }}"
         state: "{{ state }}"
-        instance_ids: "{{ ec2_instances.instances[0].instance_id }}"
+        name: "{{ servername }}"
         wait: "{{ wait }}"

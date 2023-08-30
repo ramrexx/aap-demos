@@ -1,0 +1,21 @@
+---
+- name: Control linux services
+  hosts: localhost
+  become: no
+  gather_facts: no
+
+  vars:
+  # required
+    servicename:
+    state:
+    enabled: 
+  # defaults
+    verbose: false
+    wait: false
+
+  tasks:
+    - name: Setting service "{{ servicename }}" to state "{{ state }}"
+      ansible.builtin.service:
+        name: "{{ servicename }}"
+        state: "{{ state }}"
+        enabled: "{{ enabled }}"

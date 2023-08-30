@@ -8,7 +8,6 @@
   # defaults
     verbose: false
 
-
   tasks:
     - name: Ping host
       ansible.builtin.ping:
@@ -17,5 +16,4 @@
     - name: Log ping_results
       ansible.builtin.debug:
         var: ping_results
-        # verbosity: 2
       when: verbose

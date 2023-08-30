@@ -1,5 +1,5 @@
 ---
-- name: Control AWS instances
+- name: Control ec2 instance
   hosts: localhost
   connection: local
   become: false
@@ -24,11 +24,5 @@
       ansible.builtin.debug:
         var: ec2_instances
       when: verbose
-    
-    - name: Pvt 
-      ansible.builtin.debug:
-        msg: "{{ item.private_ip_address }}"
-      loop: "{{ ec2_instances.instances }}"
-
 
 
