@@ -5,26 +5,11 @@
   gather_facts: true
 
   vars:
-  # required
-    region:
   # defaults
     verbose: false
-    wait: false
 
 
   tasks:
-    - name: Gathering information about "{{ servername }}"
-      amazon.aws.ec2_instance_info:
-        region: "{{ region }}"
-        filters:
-          "tag:Name": "{{ servername }}"
-      register: ec2_instances
-
-    - name: Log ec2_instances
-      ansible.builtin.debug:
-        var: ec2_instances
-      when: verbose
-
     - name: Ping host
       ansible.builtin.ping:
       register: ping_results
@@ -32,4 +17,5 @@
     - name: Log ping_results
       ansible.builtin.debug:
         var: ping_results
+        # verbosity: 2
       when: verbose
