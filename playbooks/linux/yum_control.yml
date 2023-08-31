@@ -8,6 +8,7 @@
   # required
     servicename:
     state:
+    # absent, installed, latest, present, removed
     enabled: 
   # defaults
     verbose: false
@@ -15,7 +16,6 @@
 
   tasks:
     - name: Setting service "{{ servicename }}" to state "{{ state }}"
-      ansible.builtin.service:
+      ansible.builtin.yum:
         name: "{{ servicename }}"
         state: "{{ state }}"
-        enabled: "{{ enabled }}"
