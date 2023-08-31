@@ -1,0 +1,25 @@
+---
+- name: Manage linux packages
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+  # required
+    pkg: 
+    state: latest
+  # defaults
+    verbose: false
+    wait: false
+
+  tasks:
+    - name: Setting service "{{ servicename }}" to state "{{ state }}"
+      ansible.builtin.yum:
+        name: "{{ pkg }}"
+        state: "{{ state }}"
+      register: yum_out
+
+    - name: Log yum_out
+      ansible.builtin.debug:
+        var: yum_out
+      when: verbose

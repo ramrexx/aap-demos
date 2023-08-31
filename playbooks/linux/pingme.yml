@@ -1,7 +1,7 @@
 ---
-- hosts: all
-  name: pingme
-  become: true
+- name: pingme
+  hosts: all
+  become: false
   gather_facts: true
 
   vars:
