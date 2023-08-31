@@ -1,6 +1,6 @@
 ---
 - name: Control linux services
-  hosts: all
+  hosts: "{{ servername }}"
   become: no
   gather_facts: no
 
