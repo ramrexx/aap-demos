@@ -1,6 +1,6 @@
 ---
 - name: Manage linux packages
-  hosts: all
+  hosts: "{{ servername }}"
   become: yes
   gather_facts: no
 
@@ -10,7 +10,6 @@
     state: latest
   # defaults
     verbose: false
-    wait: false
 
   tasks:
     - name: Setting service "{{ servicename }}" to state "{{ state }}"
