@@ -1,5 +1,5 @@
 ---
-- hosts: {{ servername }}
+- hosts: "{{ servername }}"
   name: ec2_ping
   become: true
   gather_facts: true
