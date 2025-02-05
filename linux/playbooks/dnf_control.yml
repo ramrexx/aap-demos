@@ -1,0 +1,24 @@
+---
+- name: Manage linux services
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+  # required
+    servicename:
+    state: latest
+    # absent, installed, latest, present, removed
+  # defaults
+    verbose: false
+
+  tasks:
+    - name: Executing DNF Service
+      ansible.builtin.dnf:
+        name: "{{ servicename }}"
+        state: "{{ state }}"
+
+    - name: Log dnf_out
+      ansible.builtin.debug:
+        var: dnf_out
+      when: verbose
