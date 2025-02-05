@@ -1,6 +1,6 @@
 ---
 - name: pingme
-  hosts: all
+  hosts: "{{ servername }}"
   become: false
   gather_facts: true
 

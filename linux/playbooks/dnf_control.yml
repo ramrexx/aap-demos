@@ -1,6 +1,6 @@
 ---
 - name: Manage linux services
-  hosts: all
+  hosts: "{{ servername }}"
   become: true
   gather_facts: false
 
@@ -17,7 +17,8 @@
       ansible.builtin.dnf:
         name: "{{ servicename }}"
         state: "{{ state }}"
-
+      register: dnf_out
+      
     - name: Log dnf_out
       ansible.builtin.debug:
         var: dnf_out
