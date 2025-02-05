@@ -9,6 +9,7 @@
     servicename: 
     servicestate: latest
     # absent, installed, latest, present, removed
+    autoremove: true
   # defaults
     verbose: false
 
