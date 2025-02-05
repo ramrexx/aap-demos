@@ -6,7 +6,7 @@
 
   vars:
   # required
-    servicename:
+    servicename: 
     servicestate: latest
     # absent, installed, latest, present, removed
   # defaults
