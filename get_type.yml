@@ -1,0 +1,54 @@
+---
+- name: trial
+#  hosts: "{{ _hosts | default(omit) }}"
+  hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+
+  vars:
+    # new_hosts:     
+    _hosts: 
+      - srv1
+      - srv2
+    _comma: ','
+
+  tasks:
+    - name: log incoming data type
+      debug: 
+        msg: "incoming {{_hosts}} is {{ _hosts | type_debug }}"
+
+    - name: convert string to list
+      set_fact: 
+        new_hosts: "{{ _hosts | split }}"
+      when: 
+        - _hosts is string
+        - _comma not in _hosts
+
+    - name: log data type
+      debug: 
+        msg: "{{new_hosts}} is type {{ new_hosts | type_debug }}"
+      when: new_hosts is defined
+
+    - name: convert string to a list if contains a comma
+      set_fact: 
+        new_hosts: "{{ _hosts | split(',') }}"
+      when: 
+        - _hosts is string
+        - _comma in _hosts
+
+    - name: log data type
+      debug: 
+        msg: "{{new_hosts}} is type {{ new_hosts | type_debug }}"
+      when: new_hosts is defined
+
+    - name: set fact for list
+      set_fact: 
+        new_hosts: "{{ _hosts }}"
+      when: _hosts is not string
+
+    - name: log data type
+      debug: 
+        msg: "{{new_hosts}} is type {{ new_hosts | type_debug }}"
+
+      when: new_hosts is defined

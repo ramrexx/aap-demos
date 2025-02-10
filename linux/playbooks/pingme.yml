@@ -11,9 +11,9 @@
   tasks:
     - name: Ping host
       ansible.builtin.ping:
-      register: ping_results
+      register: pingme_results
 
-    - name: Log ping_results
+    - name: Log pingme_results
       ansible.builtin.debug:
-        var: ping_results
+        var: pingme_results
       when: verbose
