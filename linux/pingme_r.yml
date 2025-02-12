@@ -1,6 +1,6 @@
 ---
-- name: pingme_r hosts
-  hosts: all
+- name: pingme_r_hosts
+  hosts: "{{ _hosts }}"
   become: false
   gather_facts: false
 
