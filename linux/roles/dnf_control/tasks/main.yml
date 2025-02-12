@@ -1,8 +1,11 @@
----
-- name: pinging host {{ ansible_host }}
-  ansible.builtin.ping:
-  register: pingme_results
+tasks:
+  - name: Executing DNF Control
+    ansible.builtin.dnf:
+      name: "{{ _servicename }}"
+      state: "{{ _servicestate }}"
+    register: dnf_out
 
-- name: Log ping_results
-  ansible.builtin.debug:
-    var: pingme_results
+  - name: Log dnf_out
+    ansible.builtin.debug:
+      var: dnf_out
+    when: verbose
