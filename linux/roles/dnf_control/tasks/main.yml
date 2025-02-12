@@ -8,4 +8,3 @@
 - name: Log dnf_out
   ansible.builtin.debug:
     var: dnf_out
-  when: verbose
