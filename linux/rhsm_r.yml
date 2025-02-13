@@ -1,8 +1,8 @@
 ---
 - name: rhsm role
   hosts: "{{ _hosts }}"
-  become: false
-  gather_facts: false
+  become: true
+  gather_facts: true
 
   roles:
       - rhsm
