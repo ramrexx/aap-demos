@@ -30,7 +30,7 @@
         state: present
 
     - name: Register subscription mangler
-      community.general.redhat_subscription:
+      redhat_subscription:
         state: present
         activationkey: "{{ _activation_key }}"
         org_id: "{{ _org_id }}"
