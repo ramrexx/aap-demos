@@ -6,7 +6,7 @@
   vars:
     _org_id: 
     _activation_key: 
-    _force_register: 
+    _force_register: "{{ _force_register | default(true) }}"
 
   tasks:
     - name: install subscription-manager
