@@ -10,6 +10,7 @@
     activationkey: "{{ _activation_key }}"
     org_id: "{{ _org_id }}"
     force_register: "{{ _force_register }}"
+    auto_attach: "{{ _auto_attach }}"
   register: rhsm_results
 
 - name: Log _rhsm_results
