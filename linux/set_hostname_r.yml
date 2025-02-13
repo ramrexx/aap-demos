@@ -2,12 +2,7 @@
 - name: set_hostname_r
   hosts: "{{ _hosts }}"
   become: true
-  gather_facts: false
-
-  pre_tasks:
-  - name: Print all available facts
-    ansible.builtin.debug:
-      var: ansible_facts
+  gather_facts: true
 
   roles:
       - set_hostname
