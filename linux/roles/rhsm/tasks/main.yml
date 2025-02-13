@@ -1,0 +1,17 @@
+# Install subscription-manager if it's not there
+- name: Install subscription-manager
+  ansible.builtin.dnf:
+    name: subscription-manager
+    state: present
+
+- name: Register subscription mangler
+  redhat_subscription:
+    state: present
+    activationkey: "{{ _activation_key }}"
+    org_id: "{{ _org_id }}"
+    force_register: "{{ _force_register }}"
+  register: rhsm_results
+
+- name: Log _rhsm_results
+  ansible.builtin.debug:
+    var: rhsm_results
