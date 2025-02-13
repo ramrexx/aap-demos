@@ -1,6 +1,7 @@
 ---
+# WIP
 - name: Manage linux services
-  hosts: "{{ servername }}"
+  hosts: "{{ _hosts }}"
   become: true
   gather_facts: false
 
