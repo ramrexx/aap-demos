@@ -9,27 +9,12 @@
     _force_register: true
 
   tasks:
-    - name: Check for vars
-      ansible.builtin.assert:
-        that:
-          - org_id is defined
-          - activation_key is defined
-          - org_id != ''
-          - activation_key != ''
-          - org_id != 'undef'
-          - activation_key != 'undef'
-
-    # - name: Set hostname
-    #   ansible.builtin.hostname:
-    #     name: "{{ inventory_hostname | regex_replace('_', '-') }}"
-
-    # Install subscription-manager if it's not there
-    - name: Install subscription-manager
+    - name: install subscription-manager
       ansible.builtin.dnf:
         name: subscription-manager
         state: present
 
-    - name: Register subscription mangler
+    - name: register host
       redhat_subscription:
         state: present
         activationkey: "{{ _activation_key }}"
