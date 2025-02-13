@@ -4,9 +4,9 @@
   become: true
   
   vars:
-    _org_id: 6863379
-    _activation_key: RHEL9
-    _force_register: true
+    _org_id: 
+    _activation_key: 
+    _force_register: 
 
   tasks:
     - name: install subscription-manager
