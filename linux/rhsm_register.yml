@@ -1,0 +1,8 @@
+---
+- name: rhsm_r
+  hosts: "{{ _hosts }}"
+  become: true
+  gather_facts: true
+
+  roles:
+    - role: rhsm_register
