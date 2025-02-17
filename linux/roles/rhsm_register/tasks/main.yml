@@ -1,4 +1,4 @@
-# Install subscription-manager if it's not there
+---
 - name: Install subscription-manager
   ansible.builtin.dnf:
     name: subscription-manager

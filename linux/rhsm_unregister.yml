@@ -1,5 +1,5 @@
 ---
-- name: rhsm_unregister_r
+- name: rhsm_unregister
   hosts: "{{ _hosts }}"
   become: true
   gather_facts: false
