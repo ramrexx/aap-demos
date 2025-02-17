@@ -5,7 +5,9 @@
   gather_facts: true
 
   roles:
-    - rhsm_register
-      when: "{{ _state }}" is not "absent"
-    - rhsm_unregister
-      when: "{{ _state }}" is not "absent"
+    # - rhsm_register
+    #   when: _state != "absent"
+    - { role: rhsm_register, when: _state != 'absent' }
+    - { role: rhsm_unregister, when: _state == 'absent' }
+    # - rhsm_unregister
+    #   when: _state == "absent"
