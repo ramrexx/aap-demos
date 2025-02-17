@@ -1,8 +1,0 @@
----
-- name: dnf_control_r
-  hosts: "{{ _hosts }}"
-  become: true
-  gather_facts: false
-
-  roles:
-      - dnf_control

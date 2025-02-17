@@ -1,8 +1,0 @@
----
-- name: pingme_r_hosts
-  hosts: "{{ _hosts }}"
-  become: false
-  gather_facts: false
-
-  roles:
-      - pingme
