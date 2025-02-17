@@ -5,4 +5,7 @@
   gather_facts: true
 
   roles:
-      - rhsm
+      - rhsm_register
+        when: _state != 'absent'
+      - rhsm_unregister
+        when: _state == 'absent'        

@@ -1,0 +1,14 @@
+---
+- name: Install subscription-manager
+  ansible.builtin.dnf:
+    name: subscription-manager
+    state: present
+
+- name: Register subscription mangler
+  redhat_subscription:
+    state: "{{ _state }}"
+  register: rhsm_results
+
+- name: Log _rhsm_results
+  ansible.builtin.debug:
+    var: rhsm_results
