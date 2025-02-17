@@ -1,10 +1,10 @@
 ---
-- name: Install subscription-manager
+- name: Ensure subscription-manager is installed
   ansible.builtin.dnf:
     name: subscription-manager
     state: present
 
-- name: Register subscription mangler
+- name: Unregister subscription-manager
   redhat_subscription:
     state: "{{ _state }}"
   register: rhsm_results
